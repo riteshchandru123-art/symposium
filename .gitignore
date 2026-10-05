@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+db.sqlite3
+*.pkl
+.env
+.venv/
+venv/
+env/
+*.egg-info/
+.DS_Store
+staticfiles/
+media/
+
+# don't commit local model download caches
+.cache/

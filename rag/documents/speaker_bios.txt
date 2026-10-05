@@ -1,0 +1,9 @@
+Dr. Ananya Sharma is a professor of Machine Learning at the Indian Institute of Science, Bengaluru. Her research focuses on reinforcement learning applied to robotics, and she has published over 40 papers in top-tier AI conferences. She previously worked at DeepMind before returning to academia.
+
+Rahul Verma is the founder and CEO of NeuralCraft, a startup building AI-driven diagnostic tools for rural healthcare. Before starting NeuralCraft, he spent six years as a senior engineer at Google working on large-scale distributed systems.
+
+Dr. Priya Nair is a cognitive scientist studying how large language models compare to human reasoning. She holds a PhD from Stanford and currently leads a research lab at IIT Bombay focused on interpretability in neural networks.
+
+Karthik Iyer is a data engineering lead at a major fintech company, specializing in building real-time fraud detection pipelines. He is a frequent speaker at data engineering meetups across India and mentors early-career engineers through open-source projects.
+
+Dr. Meera Krishnan researches the ethical and societal implications of generative AI, with a focus on bias in language models used for hiring and lending decisions. She serves as an advisor to several policy committees on AI regulation.

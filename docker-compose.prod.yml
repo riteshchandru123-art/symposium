@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-symposium}
+      POSTGRES_USER: ${DB_USER:-symposium}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-symposium}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-symposium}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    # No host port mapping in production - only the web container needs to reach it.
+
+  web:
+    build: .
+    restart: unless-stopped
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn symposium_project.wsgi:application --bind 0.0.0.0:8000 --workers 3"
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DB_ENGINE: postgres
+      DB_HOST: db
+      DJANGO_DEBUG: "False"
+    depends_on:
+      db:
+        condition: service_healthy
+    # Deliberately no `volumes: - .:/app` here (unlike docker-compose.yml for
+    # local dev) - production runs the code baked into the image, not a live
+    # mount, so a stale local file can't accidentally affect the running server.
+
+volumes:
+  postgres_data:

@@ -1,0 +1,14 @@
+Django>=5.0,<6.2
+psycopg2-binary>=2.9
+gunicorn>=21.2
+python-dotenv>=1.0
+whitenoise>=6.6
+requests>=2.31
+
+# RAG
+sentence-transformers>=2.2.2
+numpy>=1.24.0
+
+# LLM API - uncomment whichever you use for the agent
+# anthropic>=0.34.0
+# openai>=1.40.0

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symposium Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'chatui/style.css' %}">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header-text">
+        <h1>AI Symposium Desk</h1>
+        <p class="subtitle">Ask about sessions, speakers, or the venue</p>
+      </div>
+      <div class="header-actions">
+        <button class="icon-toggle" id="voiceOutputToggle" type="button" title="Toggle spoken replies" aria-pressed="false">🔇</button>
+        <span class="status"><span class="status-dot"></span>Online</span>
+      </div>
+    </header>
+
+    <div class="chip-row" id="chipRow">
+      <button class="chip" data-message="Who is speaking tomorrow and where?">Schedule</button>
+      <button class="chip" data-message="Tell me about the speakers.">Speakers</button>
+      <button class="chip" data-message="Where is the venue and is there parking?">Venue</button>
+      <button class="chip" data-message="How do I check my registration?">Registration</button>
+    </div>
+
+    <main class="chat" id="chat" aria-live="polite">
+      <div class="message assistant">
+        <div class="bubble">
+          Hi, I'm the symposium assistant. Ask me who's speaking, where a session is, or anything about the venue and registration.
+        </div>
+      </div>
+    </main>
+
+    <form class="composer" id="composer">
+      <button class="icon-toggle mic-button" id="micButton" type="button" title="Ask by voice" aria-pressed="false">🎙️</button>
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Ask a question..."
+        autocomplete="off"
+        required
+      >
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="{% static 'chatui/chat.js' %}"></script>
+</body>
+</html>
